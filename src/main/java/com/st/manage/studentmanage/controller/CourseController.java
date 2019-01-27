@@ -22,13 +22,19 @@ public class CourseController {
 	
 	@PostMapping
 	public boolean saveStudent(@RequestBody CourseDTO courseDTO) {
+<<<<<<< HEAD
 		System.out.println("CourseDTO"+courseDTO);
+=======
+		System.out.println("DTO"+courseDTO);
+>>>>>>> master
 		courseService.saveCourse(courseDTO);
+		
 		return true;
 	}
 	
 	@GetMapping
 	public List<CourseDTO> getAllCourses(){
 		return courseService.findAllCourse();
+		
 	}
 }

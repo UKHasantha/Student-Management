@@ -22,6 +22,7 @@ public class CourseController {
 	
 	@PostMapping
 	public boolean saveStudent(@RequestBody CourseDTO courseDTO) {
+		System.out.println("CourseDTO"+courseDTO);
 		courseService.saveCourse(courseDTO);
 		return true;
 	}

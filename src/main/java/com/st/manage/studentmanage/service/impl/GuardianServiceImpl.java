@@ -1,11 +1,13 @@
 package com.st.manage.studentmanage.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.st.manage.studentmanage.dto.GuardianDTO;
+import com.st.manage.studentmanage.dto.StudentDTO;
 import com.st.manage.studentmanage.entity.Guardian;
 import com.st.manage.studentmanage.repository.GuardianRepository;
 import com.st.manage.studentmanage.service.GuardianService;
@@ -41,8 +43,11 @@ public class GuardianServiceImpl implements GuardianService{
 
 	@Override
 	public List<GuardianDTO> findAllGuardian() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Guardian> guardians=guardianRepository.findAll();
+		List<GuardianDTO> guardianDTOs=new ArrayList<>() ;
+		guardians.forEach(guardian ->guardianDTOs.add(new GuardianDTO(guardian.getGid(),guardian.getGname(),guardian.getGcontact(),
+				guardian.getGaddress())));
+		return guardianDTOs;
 	}
 
 }

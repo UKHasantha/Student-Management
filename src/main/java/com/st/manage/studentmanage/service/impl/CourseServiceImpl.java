@@ -21,6 +21,11 @@ public class CourseServiceImpl implements CourseService{
 	public void saveCourse(CourseDTO courseDTO) {
 		courseRepository.save(new Course(courseDTO.getCid(),courseDTO.getCname(),courseDTO.getCperiod()));	
 	}
+	
+	@Override
+	public long getTotalCourse() {
+		return courseRepository.getTotalCourse();
+	}
 
 	@Override
 	public void updateCourse(String cid,CourseDTO courseDTO) {
@@ -29,12 +34,12 @@ public class CourseServiceImpl implements CourseService{
 		}else {
 			throw new RuntimeException("Course doesn't exists....");
 		}
-		
 	}
 
 	@Override
-	public void deleteCourse(String cid) {
+	public boolean deleteCourse(String cid) {
 		courseRepository.deleteById(cid);
+		return true;
 	}
 
 	@Override

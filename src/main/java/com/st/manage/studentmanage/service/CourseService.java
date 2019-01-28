@@ -11,10 +11,12 @@ public interface CourseService {
 
     void updateCourse(String cid,CourseDTO courseDTO);
 
-    void deleteCourse(String cid);
+    public boolean deleteCourse(String cid);
 
     CourseDTO findCourse(String cid);
 
     List<CourseDTO> findAllCourse();
+    
+    public long getTotalCourse();
 
 }

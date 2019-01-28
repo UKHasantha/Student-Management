@@ -23,20 +23,15 @@ public class StudentServiceImpl implements StudentService{
 
 	@Override
 	public void saveStudent(StudentDTO studentDTO) {
-//		if (!studentDTO.getSid().equals(sid)) {
-//			throw new RuntimeException("Student ID Not Found....!");
-//		}
 		studentRepository.save(new Student(studentDTO.getSid(), studentDTO.getSname(), 
 				studentDTO.getScontact(), studentDTO.getSaddress()));
 	}
 
 	@Override
 	public void updateStudent(String sid, StudentDTO studentDTO) {
-//		if (!studentDTO.getSid().equals(sid)) {
-//			throw new RuntimeException("Student ID not Found...!");
-//		}
 		if (studentRepository.existsById(sid)) {
-			studentRepository.save(new Student(studentDTO.getSid(),studentDTO.getSname(),studentDTO.getScontact(),studentDTO.getSaddress()));
+			studentRepository.save(new Student(studentDTO.getSid(),studentDTO.getSname(),studentDTO.getScontact(),
+					studentDTO.getSaddress()));
 		}else {
 			throw new RuntimeException("Student doesn't exists..");
 		}
